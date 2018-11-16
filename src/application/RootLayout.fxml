@@ -30,9 +30,6 @@
               </menus>
             </MenuBar>
          </top>
-         <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Test" BorderPane.alignment="CENTER" />
-         </center>
       </BorderPane>
    </children>
 </AnchorPane>
