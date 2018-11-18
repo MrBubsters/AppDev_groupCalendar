@@ -10,6 +10,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.calendar.Calendar;
+import com.google.api.services.calendar.Calendar.Events.QuickAdd;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventAttendee;
@@ -25,7 +26,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class CalendarQuickstart {
+public class CalendarAPI {
     private static final String APPLICATION_NAME = "CalAPP";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
@@ -46,7 +47,7 @@ public class CalendarQuickstart {
     
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
         // Load client secrets.
-        InputStream in = CalendarQuickstart.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
+        InputStream in = CalendarAPI.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
         // Build flow and trigger user authorization request.
@@ -57,6 +58,14 @@ public class CalendarQuickstart {
                 .build();
         LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+    }
+    
+    public static Calendar build() throws GeneralSecurityException, IOException {
+    	final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+        Calendar service = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
+                .setApplicationName(APPLICATION_NAME)
+                .build();
+        return service;
     }
     
     public static void addEvent(Calendar service, String summary, String loc, String desc, 
@@ -101,37 +110,38 @@ public class CalendarQuickstart {
     		event = service.events().insert(calendarId, event).execute();
     		System.out.printf("Event created: %s\n", event.getHtmlLink());
     }
+    
+    public static void quickAdd(Calendar service, String text) throws IOException {
+    	String calendarId = "primary";
+    	QuickAdd createdEvent = service.events().quickAdd(calendarId, text);
+    }
+    
+    public static void test(Calendar service) throws IOException {
+      // List the next 10 events from the primary calendar.
+      DateTime now = new DateTime(System.currentTimeMillis());
+      Events events = service.events().list("primary")
+              .setMaxResults(10)
+              .setTimeMin(now)
+              .setOrderBy("startTime")
+              .setSingleEvents(true)
+              .execute();
+      List<Event> items = events.getItems();
+      if (items.isEmpty()) {
+          System.out.println("No upcoming events found.");
+      } else {
+          System.out.println("Upcoming events");
+          for (Event event : items) {
+              DateTime start = event.getStart().getDateTime();
+              if (start == null) {
+                  start = event.getStart().getDate();
+              }
+              System.out.printf("%s (%s)\n", event.getSummary(), start);
+          }
+      }
+    }
 
     public static void main(String... args) throws IOException, GeneralSecurityException {
-        // Build a new authorized API client service.
-        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        Calendar service = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
-                .setApplicationName(APPLICATION_NAME)
-                .build();
-
-        // List the next 10 events from the primary calendar.
-        DateTime now = new DateTime(System.currentTimeMillis());
-        Events events = service.events().list("primary")
-                .setMaxResults(10)
-                .setTimeMin(now)
-                .setOrderBy("startTime")
-                .setSingleEvents(true)
-                .execute();
-        List<Event> items = events.getItems();
-        if (items.isEmpty()) {
-            System.out.println("No upcoming events found.");
-        } else {
-            System.out.println("Upcoming events");
-            for (Event event : items) {
-                DateTime start = event.getStart().getDateTime();
-                if (start == null) {
-                    start = event.getStart().getDate();
-                }
-                System.out.printf("%s (%s)\n", event.getSummary(), start);
-            }
-        }
-        DateTime startTime = new DateTime("2018-11-28T09:00:00-07:00");
-        DateTime endTime = new DateTime("2018-11-28T10:00:00-07:00");
-		String[] recur = new String[] {"RRULE:FREQ=DAILY;COUNT=2"};
+    	Calendar service = build();
+    	test(service);
     }
 }
