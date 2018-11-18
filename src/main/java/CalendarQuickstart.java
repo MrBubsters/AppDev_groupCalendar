@@ -59,11 +59,13 @@ public class CalendarQuickstart {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
     
-    public static void addEvent(Calendar service) throws IOException {
+    public static void addEvent(Calendar service, String summary, String loc, String desc, 
+    		DateTime startTime, DateTime endTime, String[] recur, String timezone) throws IOException {
+    	
     	Event event = new Event()
-    		    .setSummary("test")
-    		    .setLocation("800 Howard St., San Francisco, CA 94103")
-    		    .setDescription("A chance to hear more about Google's developer products.");
+    		    .setSummary(summary)
+    		    .setLocation(loc)
+    		    .setDescription(desc);
 
     		DateTime startDateTime = new DateTime("2018-11-28T09:00:00-07:00");
     		EventDateTime start = new EventDateTime()
@@ -128,6 +130,8 @@ public class CalendarQuickstart {
                 System.out.printf("%s (%s)\n", event.getSummary(), start);
             }
         }
-        addEvent(service);
+        DateTime startTime = new DateTime("2018-11-28T09:00:00-07:00");
+        DateTime endTime = new DateTime("2018-11-28T10:00:00-07:00");
+		String[] recur = new String[] {"RRULE:FREQ=DAILY;COUNT=2"};
     }
 }
