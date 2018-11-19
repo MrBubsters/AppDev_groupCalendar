@@ -61,6 +61,7 @@ public class CalendarAPI {
     }
     
     public static Calendar build() throws GeneralSecurityException, IOException {
+    	// Build Calendar
     	final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Calendar service = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
@@ -70,6 +71,7 @@ public class CalendarAPI {
     
     public static void addEvent(Calendar service, String summary, String loc, String desc, 
     		DateTime startTime, DateTime endTime, String[] recur, String timezone) throws IOException {
+    	//Creates event based on input values
     	
     	Event event = new Event()
     		    .setSummary(summary)
@@ -113,7 +115,8 @@ public class CalendarAPI {
     
     public static void quickAdd(Calendar service, String text) throws IOException {
     	String calendarId = "primary";
-    	QuickAdd createdEvent = service.events().quickAdd(calendarId, text);
+    	Event event = service.events().quickAdd(calendarId, text).execute();
+    	System.out.printf("Event created: %s\n", event.getHtmlLink());
     }
     
     public static void test(Calendar service) throws IOException {
