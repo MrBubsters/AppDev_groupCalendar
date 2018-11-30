@@ -9,8 +9,14 @@
    <children>
       <TextField layoutX="117.0" layoutY="48.0" />
       <TextField layoutX="117.0" layoutY="87.0" />
-      <Button layoutX="117.0" layoutY="126.0" mnemonicParsing="false" text="Log-In" />
-      <Button layoutX="215.0" layoutY="126.0" mnemonicParsing="false" text="Sign-Up" />
+        
+      <Button id="ChangeMe" layoutX="117.0" layoutY="126.0" mnemonicParsing="false" 
+      onAction="#handleSubmitButtonAction" text="Log-In" />
+      		 
+       
+      <Button id ="SignMeUp" layoutX="215.0" layoutY="126.0" mnemonicParsing="false"
+      onAction="#SignUpButtonAction" text="Sign-Up" />
+      
       <Label layoutX="34.0" layoutY="53.0" prefHeight="17.0" prefWidth="68.0" text="UserName:" />
       <Label layoutX="34.0" layoutY="92.0" prefHeight="17.0" prefWidth="68.0" text="Password:" />
    </children>

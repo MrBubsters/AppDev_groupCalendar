@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class Controller extends Main {
 
 	@FXML Button ChangeMe;
-//	@FXML Button SignMeUp;
+	@FXML Button SignMeUp;
 
 	@FXML private void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new 
