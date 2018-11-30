@@ -30,7 +30,7 @@ public class Main extends Application {
         try {
             rootLayout = FXMLLoader.load(getClass().getResource("RootLayout.fxml"));
  
-            Scene scene = new Scene(rootLayout, 700, 375);
+            Scene scene = new Scene(rootLayout, 1250, 700);
             primaryStage.setScene(scene);
 
             primaryStage.show();
