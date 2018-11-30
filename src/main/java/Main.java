@@ -21,10 +21,11 @@ public class Main extends Application {
  
         initRootLayout();
  
-        showView();
+        showView("CreateTaskWindow.fxml");
+        setRight("UserLogin.fxml");
     }
  
-    //Initializes the root layout.
+    // Initializes the root layout.
     public void initRootLayout() {
         try {
             rootLayout = FXMLLoader.load(getClass().getResource("RootLayout.fxml"));
@@ -38,10 +39,10 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-	
-    public void showView() {
+	// Sets the center of root
+    public void showView(String fxml) {
         try {
-        	AnchorPane View = FXMLLoader.load(getClass().getResource("UserLogin.fxml"));
+        	AnchorPane View = FXMLLoader.load(getClass().getResource(fxml));
         	
             rootLayout.setCenter(View);
         } 
@@ -49,6 +50,41 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+    // Sets right justified AnchorPane
+    public void setRight(String fxml) {
+        try {
+        	AnchorPane View = FXMLLoader.load(getClass().getResource(fxml));
+        	
+            rootLayout.setRight(View);
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    // Sets left justified AnchorPane
+    public void setLeft(String fxml) {
+        try {
+        	AnchorPane View = FXMLLoader.load(getClass().getResource(fxml));
+        	
+            rootLayout.setLeft(View);
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    // Sets bottom justified AnchorPane
+    public void setBottom(String fxml) {
+        try {
+        	AnchorPane View = FXMLLoader.load(getClass().getResource(fxml));
+        	
+            rootLayout.setBottom(View);
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 	public static void main(String[] args) {
 		launch(args);
