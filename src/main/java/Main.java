@@ -21,8 +21,9 @@ public class Main extends Application {
  
         initRootLayout();
  
-        showView("CreateTaskWindow.fxml");
+        showView("TaskView.fxml");
         setRight("UserLogin.fxml");
+        setLeft("CreateTaskWindow.fxml");
     }
  
     // Initializes the root layout.
