@@ -138,7 +138,7 @@ public class CalendarAPI {
                   start = event.getStart().getDate();
               }
               System.out.printf("%s (%s)\n", event.getSummary(), start);
-              list.add(event.getSummary() + start);
+              list.add(event.getSummary());
           }
       }
       return list;
