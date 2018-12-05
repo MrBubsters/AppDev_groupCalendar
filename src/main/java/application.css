@@ -1,1 +1,17 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+@font-face {
+	font-family: GourmentHearth;
+	src: url('Gourment-Hearth.otf');
+}
+
+.root {
+	-fx-background-color: white;
+	
+}
+
+.category {
+	-fx-font-family: GourmentHearth;
+	
+}
