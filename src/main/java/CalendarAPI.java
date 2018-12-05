@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -66,13 +67,13 @@ public class CalendarAPI {
         return service;
     }
     
-    public static void addEvent(Calendar service, String summary, String loc, String desc, 
+    public static void addEvent(Calendar service, String summary, String desc, 
     		DateTime startTime, DateTime endTime, String[] recur, String timezone) throws IOException {
     	//Creates event based on input values
     	
     	Event event = new Event()
     		    .setSummary(summary)
-    		    .setLocation(loc)
+//    		    .setLocation(loc)
     		    .setDescription(desc);
 
     		DateTime startDateTime = new DateTime("2018-11-28T09:00:00-07:00");
@@ -116,7 +117,7 @@ public class CalendarAPI {
     	System.out.printf("Event created: %s\n", event.getHtmlLink());
     }
     
-    public static void test(Calendar service) throws IOException {
+    public static ArrayList<String> getNext10(Calendar service) throws IOException {
       // List the next 10 events from the primary calendar.
       DateTime now = new DateTime(System.currentTimeMillis());
       Events events = service.events().list("primary")
@@ -126,6 +127,7 @@ public class CalendarAPI {
               .setSingleEvents(true)
               .execute();
       List<Event> items = events.getItems();
+      ArrayList<String> list = new ArrayList<String>();
       if (items.isEmpty()) {
           System.out.println("No upcoming events found.");
       } else {
@@ -136,12 +138,14 @@ public class CalendarAPI {
                   start = event.getStart().getDate();
               }
               System.out.printf("%s (%s)\n", event.getSummary(), start);
+              list.add(event.getSummary());
           }
       }
+      return list;
     }
 
     public static void main(String... args) throws IOException, GeneralSecurityException {
     	Calendar service = build();
-    	test(service);
+    	getNext10(service);
     }
 }
