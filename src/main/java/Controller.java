@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.time.format.DateTimeFormatter;
 
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
@@ -12,7 +13,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,6 +25,8 @@ public class Controller extends Main {
 	ObservableList<String> tasks = FXCollections.observableArrayList();
 	@FXML ListView<String> list;
 	@FXML Button refresh;
+	ObservableList<String> taskData = FXCollections.observableArrayList();
+
 	
 	@FXML private void handleTastViewButton(ActionEvent event) throws IOException, GeneralSecurityException {
 		Calendar service = CalendarAPI.build();
@@ -59,15 +65,28 @@ public class Controller extends Main {
 	
 	}
 	
-	ObservableList<String> taskData = FXCollections.observableArrayList();
+	@FXML Button create;
+	@FXML TextField title;
+	@FXML TextArea desc;
+	@FXML DatePicker date;
+	@FXML TextField time;
+	private void GetData() {
+		taskData.add(title.getText());
+		taskData.add(desc.getText());
+		taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-06:00");
+		System.out.println(taskData.get(2));
+	}
+	
 	@FXML private void saveButtonAction(ActionEvent event) throws IOException, GeneralSecurityException {
 		//get fields from taskData
+		GetData();
 		String summary = taskData.get(0);
 		String desc = taskData.get(1);
-		DateTime startTime = null;
-		DateTime endTime = null;
+		DateTime startTime = DateTime.parseRfc3339(taskData.get(2));
+		System.out.println(startTime);
+		DateTime endTime = startTime;
 		String[] recur = null;
-		String timezone = taskData.get(5);
+		String timezone = "America/Chicago";
 		
 		//push taskData to GCal
 		Calendar service = CalendarAPI.build();
