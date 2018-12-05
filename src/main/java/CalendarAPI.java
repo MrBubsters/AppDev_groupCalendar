@@ -78,18 +78,18 @@ public class CalendarAPI {
 
     		DateTime startDateTime = new DateTime("2018-11-28T09:00:00-07:00");
     		EventDateTime start = new EventDateTime()
-    		    .setDateTime(startDateTime)
+    		    .setDateTime(startTime)
     		    .setTimeZone("America/Chicago");
     		event.setStart(start);
 
     		DateTime endDateTime = new DateTime("2018-11-28T17:00:00-07:00");
     		EventDateTime end = new EventDateTime()
-    		    .setDateTime(endDateTime)
+    		    .setDateTime(endTime)
     		    .setTimeZone("America/Chicago");
     		event.setEnd(end);
 
-    		String[] recurrence = new String[] {"RRULE:FREQ=DAILY;COUNT=2"};
-    		event.setRecurrence(Arrays.asList(recurrence));
+//    		String[] recurrence = new String[] {"RRULE:FREQ=DAILY;COUNT=2"};
+//    		event.setRecurrence(Arrays.asList(recurrence));
 
 //    		EventAttendee[] attendees = new EventAttendee[] {
 //    		    new EventAttendee().setEmail("lpage@example.com"),

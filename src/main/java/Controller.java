@@ -1,6 +1,10 @@
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+
 
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
@@ -30,6 +34,7 @@ public class Controller extends Main {
 	
 	@FXML private void handleTastViewButton(ActionEvent event) throws IOException, GeneralSecurityException {
 		Calendar service = CalendarAPI.build();
+		tasks.clear();
 		tasks.addAll(CalendarAPI.getNext10(service));
 		list.setItems(tasks);
 	}
@@ -70,10 +75,16 @@ public class Controller extends Main {
 	@FXML TextArea desc;
 	@FXML DatePicker date;
 	@FXML TextField time;
+	@FXML TextField end;
 	private void GetData() {
+		taskData.clear();
 		taskData.add(title.getText());
 		taskData.add(desc.getText());
+//		DateTimeFormatter formatter = DateTimeFormatter
+//	            .ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+//	            .withZone(ZoneId.of("CST"));
 		taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-06:00");
+		taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-06:00");
 		System.out.println(taskData.get(2));
 	}
 	
@@ -84,7 +95,7 @@ public class Controller extends Main {
 		String desc = taskData.get(1);
 		DateTime startTime = DateTime.parseRfc3339(taskData.get(2));
 		System.out.println(startTime);
-		DateTime endTime = startTime;
+		DateTime endTime = DateTime.parseRfc3339(taskData.get(3));
 		String[] recur = null;
 		String timezone = "America/Chicago";
 		

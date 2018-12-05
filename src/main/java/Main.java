@@ -23,7 +23,9 @@ public class Main extends Application {
  
         showView("TaskView.fxml");
         setRight("UserLogin.fxml");
+
         setLeft("CreateTaskWindow.fxml");
+
     }
  
     // Initializes the root layout.
@@ -32,10 +34,12 @@ public class Main extends Application {
             rootLayout = FXMLLoader.load(getClass().getResource("RootLayout.fxml"));
  
             Scene scene = new Scene(rootLayout, 1250, 700);
+            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            
             primaryStage.setScene(scene);
 
             primaryStage.show();
-        } 
+        }  
         catch (IOException e) {
             e.printStackTrace();
         }
