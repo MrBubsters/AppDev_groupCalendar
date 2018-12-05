@@ -99,6 +99,7 @@
             <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time (X:XX)" wrappingWidth="79.1767578125" GridPane.rowIndex="3" />
 <<<<<<< HEAD
+<<<<<<< HEAD
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
                   <TextField fx:id="time" prefHeight="27.0" prefWidth="120.0" />
@@ -108,6 +109,9 @@
 =======
 
 >>>>>>> d13bb29a1824c802346fef98a4ea5b3f25f4a6fe
+=======
+
+>>>>>>> 2e0bf65b688ad22a8fefb701fa278333909bc1f4
          </children>
          <opaqueInsets>
             <Insets />
