@@ -44,6 +44,12 @@ public class Controller extends Main {
 	@FXML Button SignMeUp;
 	@FXML private javafx.scene.control.Button CalAPI;
 	@FXML private javafx.scene.control.Button CloseMe;
+	@FXML Button LogMeOut;
+	
+	
+	@FXML private void LogOutAction(ActionEvent event) {
+		CalendarAPI.DeleteCreds();
+	}
 	
 	@FXML private void CalAPIevent(ActionEvent event)
 	{
