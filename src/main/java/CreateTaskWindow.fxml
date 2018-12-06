@@ -67,8 +67,13 @@
                </GridPane.margin>
             </Button>
             <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="time" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time (X:XX)" wrappingWidth="79.1767578125" GridPane.rowIndex="3" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="time" />
+                  <TextField fx:id="end" />
+               </children>
+            </HBox>
          </children>
          <opaqueInsets>
             <Insets />
