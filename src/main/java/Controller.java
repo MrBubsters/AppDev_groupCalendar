@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-
+import java.util.ArrayList;
 
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
@@ -104,7 +104,9 @@ public class Controller extends Main {
 		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone);
 	}
 	
-	@FXML private void handleSelection() {
-		
+	@FXML private void deleteSelection() throws GeneralSecurityException, IOException {
+		int selectedIdx = list.getSelectionModel().getSelectedIndex();
+		ArrayList<String> idList = CalendarAPI.getIDList();
+		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
 	}
 }

@@ -36,6 +36,8 @@ public class CalendarAPI {
 
     private static final List<String> SCOPES = Collections.singletonList(CalendarScopes.CALENDAR);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
+    public static ArrayList<String> idList = new ArrayList<String>();
+
 
     /**
      * Creates an authorized Credential object.
@@ -129,6 +131,7 @@ public class CalendarAPI {
               .execute();
       List<Event> items = events.getItems();
       ArrayList<String> list = new ArrayList<String>();
+      ArrayList<String> idList = new ArrayList<String>();
       if (items.isEmpty()) {
           System.out.println("No upcoming events found.");
       } else {
@@ -140,13 +143,20 @@ public class CalendarAPI {
               }
               System.out.printf("%s (%s)\n", event.getSummary(), start);
               list.add(event.getSummary());
+              idList.add(event.getId());
           }
       }
       return list;
     }
     
-    public static void DeleteEvent(String id) {
-    	
+    public static ArrayList<String> getIDList() {
+    	return idList;
+    }
+    
+    public static void DeleteEvent(String id) throws GeneralSecurityException, IOException {
+    	Calendar service = build();
+    	service.events().delete("primary", id).execute();
+
     }
     
     public static void DeleteCreds() {
@@ -156,6 +166,7 @@ public class CalendarAPI {
 
     public static void main(String... args) throws IOException, GeneralSecurityException {
     	Calendar service = build();
+    	getNext10(service);
     	//DeleteCreds();
     }
 }
