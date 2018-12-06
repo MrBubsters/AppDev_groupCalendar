@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="226.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="226.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <ListView id="list" fx:id="list" prefHeight="474.0" prefWidth="446.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets></ListView>
-      <Button fx:id="refresh" layoutX="195.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleTastViewButton" text="Refresh" />
+      <Button fx:id="refresh" layoutX="157.0" layoutY="447.0" mnemonicParsing="false" onAction="#handleTastViewButton" text="Refresh" />
+      <Button layoutX="223.0" layoutY="447.0" mnemonicParsing="false" onAction="#deleteSelection" text="Delete" />
    </children>
 </AnchorPane>

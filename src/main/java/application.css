@@ -1,22 +1,25 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
 
-@font-face {
-	font-family: GourmentHearth;
-	src: url('Gourment-Hearth.otf');
-}
-
 .root {
 	-fx-background-color: white;
 	
 }
 
 .label {
-	-fx-font: Times New Romans;
-	
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: Black;
+    -fx-opacity: 1.0;
 }
+
 
 .button { 
    -fx-background-color: red; 
    -fx-text-fill: white; 
+   -fx-font: bold italic "Times New Romans";
+   -fx-effect: dropshadow( one-pass-box , gray , 8 , 0.0 , 2 , 0 );
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
 }
