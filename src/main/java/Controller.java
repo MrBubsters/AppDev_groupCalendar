@@ -120,5 +120,6 @@ public class Controller extends Main {
 		int selectedIdx = list.getSelectionModel().getSelectedIndex();
 		ArrayList<String> idList = CalendarAPI.getIDList();
 		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
+		handleTastViewButton(null);
 	}
 }

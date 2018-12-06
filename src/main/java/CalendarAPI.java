@@ -131,7 +131,6 @@ public class CalendarAPI {
               .execute();
       List<Event> items = events.getItems();
       ArrayList<String> list = new ArrayList<String>();
-      ArrayList<String> idList = new ArrayList<String>();
       if (items.isEmpty()) {
           System.out.println("No upcoming events found.");
       } else {
