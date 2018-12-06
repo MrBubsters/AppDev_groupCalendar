@@ -145,6 +145,10 @@ public class CalendarAPI {
       return list;
     }
     
+    public static void DeleteEvent(String id) {
+    	
+    }
+    
     public static void DeleteCreds() {
     	File creds = new File("tokens/StoredCredential");
     	creds.delete();

@@ -104,4 +104,7 @@ public class Controller extends Main {
 		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone);
 	}
 	
+	@FXML private void handleSelection() {
+		
+	}
 }
