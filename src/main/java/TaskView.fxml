@@ -7,13 +7,10 @@
 
 <AnchorPane prefHeight="226.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <ListView id="list" fx:id="list" prefHeight="500.0" prefWidth="500.0">
+      <ListView id="list" fx:id="list" prefHeight="474.0" prefWidth="446.0">
          <opaqueInsets>
             <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets top="30.0" />
-         </padding></ListView>
-      <Button fx:id="refresh" layoutX="217.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleTastViewButton" text="Refresh" />
+         </opaqueInsets></ListView>
+      <Button fx:id="refresh" layoutX="195.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleTastViewButton" text="Refresh" />
    </children>
 </AnchorPane>

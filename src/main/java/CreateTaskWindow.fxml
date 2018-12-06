@@ -26,8 +26,8 @@
           <RowConstraints maxHeight="558.0" minHeight="1.0" prefHeight="45.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="558.0" minHeight="0.0" prefHeight="52.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="558.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="350.0" minHeight="0.0" prefHeight="99.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="350.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Category:">
@@ -56,7 +56,7 @@
             <ComboBox fx:id="comboCategories" prefWidth="150.0" GridPane.columnIndex="1" />
             <Button fx:id="create" mnemonicParsing="false" onAction="#saveButtonAction" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="100.0" />
+                  <Insets left="75.0" />
                </GridPane.margin>
             </Button>
             <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="5" />
