@@ -13,7 +13,6 @@ import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.Calendar.Events.QuickAdd;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
-import com.google.api.services.calendar.model.EventAttendee;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.EventReminder;
 import com.google.api.services.calendar.model.Events;
@@ -37,6 +36,8 @@ public class CalendarAPI {
     private static final List<String> SCOPES = Collections.singletonList(CalendarScopes.CALENDAR);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
     public static ArrayList<String> idList = new ArrayList<String>();
+    public static ArrayList<String> descList = new ArrayList<String>();
+
 
 
     /**
@@ -130,7 +131,7 @@ public class CalendarAPI {
               .setSingleEvents(true)
               .execute();
       List<Event> items = events.getItems();
-      ArrayList<String> list = new ArrayList<String>();
+      ArrayList<String> eventList = new ArrayList<String>();
       if (items.isEmpty()) {
           System.out.println("No upcoming events found.");
       } else {
@@ -141,15 +142,22 @@ public class CalendarAPI {
                   start = event.getStart().getDate();
               }
               System.out.printf("%s (%s)\n", event.getSummary(), start);
-              list.add(event.getSummary());
+              eventList.add(event.getSummary());
               idList.add(event.getId());
+              descList.add(event.getDescription());
           }
       }
-      return list;
+      return eventList;
     }
     
-    public static ArrayList<String> getIDList() {
-    	return idList;
+    public static ArrayList<String> getList(String s) {
+    	if (s == "id") {
+    		return idList;
+    	}
+    	else if (s == "desc") {
+    		return descList;
+    	}
+    	else return null;
     }
     
     public static void DeleteEvent(String id) throws GeneralSecurityException, IOException {
@@ -164,8 +172,9 @@ public class CalendarAPI {
     }
 
     public static void main(String... args) throws IOException, GeneralSecurityException {
-    	Calendar service = build();
-    	getNext10(service);
-    	//DeleteCreds();
+    	//Calendar service = build();
+    	//quickAdd(service, "test");
+    	//getNext10(service);
+    	DeleteCreds();
     }
 }

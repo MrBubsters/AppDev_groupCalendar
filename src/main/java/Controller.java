@@ -72,9 +72,8 @@ public class Controller extends Main {
 		    stage.setScene(new Scene(root2));
 		    stage.setResizable(false);
 		    stage.show();
-	
 	}
-
+	
 	
 	@FXML Button create;
 	@FXML TextField title;
@@ -112,7 +111,7 @@ public class Controller extends Main {
 	
 	@FXML private void deleteSelection() throws GeneralSecurityException, IOException {
 		int selectedIdx = list.getSelectionModel().getSelectedIndex();
-		ArrayList<String> idList = CalendarAPI.getIDList();
+		ArrayList<String> idList = CalendarAPI.getList("id");
 		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
 		handleTastViewButton(null);
 	}
