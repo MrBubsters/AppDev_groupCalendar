@@ -71,13 +71,14 @@ public class CalendarAPI {
     }
     
     public static void addEvent(Calendar service, String summary, String desc, 
-    		DateTime startTime, DateTime endTime, String[] recur, String timezone) throws IOException {
+    		DateTime startTime, DateTime endTime, String[] recur, String timezone, String colorId) throws IOException {
     	//Creates event based on input values
     	
     	Event event = new Event()
     		    .setSummary(summary)
 //    		    .setLocation(loc)
     		    .setDescription(desc);
+    	event.setColorId(colorId);
 
     		DateTime startDateTime = new DateTime("2018-11-28T09:00:00-07:00");
     		EventDateTime start = new EventDateTime()
