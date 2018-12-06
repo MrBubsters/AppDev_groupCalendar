@@ -171,15 +171,9 @@ public class CalendarAPI {
     }
 
     public static void main(String... args) throws IOException, GeneralSecurityException {
-<<<<<<< HEAD
     	//Calendar service = build();
     	//quickAdd(service, "test");
     	//getNext10(service);
-    	DeleteCreds();
-=======
-    		Calendar service = build();
-    		getNext10(service);
     	//DeleteCreds();
->>>>>>> 3fd648dcaba13532e4adc9fb55c111d50c97d65e
     }
 }
