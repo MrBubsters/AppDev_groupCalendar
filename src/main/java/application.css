@@ -19,4 +19,6 @@
 .button { 
    -fx-background-color: red; 
    -fx-text-fill: white; 
+   -fx-font: bold italic "Times New Romans";
+   -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
 }
