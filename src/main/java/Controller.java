@@ -50,22 +50,16 @@ public class Controller extends Main {
 		((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
 	}
 	
+	
 	@FXML private void nowCloseMe(ActionEvent event){
 		((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
 	}
 
-	@FXML private void handleSubmitButtonAction(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new 
-		        FXMLLoader(getClass().getResource("RootLayout.fmxl"));
-		    Parent root1 = (Parent) fxmlLoader.load();
-		    Stage stage = new Stage();
-		    //set what you want on your stage
-		    stage.initModality(Modality.APPLICATION_MODAL);
-		    stage.setTitle("Pin5ive Application");
-		    stage.setScene(new Scene(root1));
-		    stage.setResizable(false);
-		    stage.show();
+	@FXML private void handleSubmitButtonAction(ActionEvent event)  throws IOException, GeneralSecurityException 
+	{		
+		CalendarAPI.build();
 	}
+	
 	
 	@FXML private void SignUpButtonAction(ActionEvent event) throws IOException{
 		FXMLLoader fxmlLoader = new 
