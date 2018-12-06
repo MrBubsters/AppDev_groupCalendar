@@ -30,25 +30,25 @@
             <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Category">
+            <Label text="Category:">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Task Name" GridPane.rowIndex="1">
+            <Label text="Task Name:" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
             <TextField fx:id="title" prefHeight="27.0" prefWidth="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Description" GridPane.rowIndex="4">
+            <Label text="Description:" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
             <TextArea fx:id="desc" prefHeight="149.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <DatePicker fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Date " GridPane.rowIndex="2">
+            <Label text="Date: " GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
