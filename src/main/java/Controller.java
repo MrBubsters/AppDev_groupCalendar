@@ -27,6 +27,8 @@ import javafx.stage.Stage;
 
 public class Controller extends Main {
 	
+	@FXML String colorId;
+	
 	ObservableList<String> tasks = FXCollections.observableArrayList();
 	@FXML ListView<String> list;
 	@FXML Button refresh;
@@ -112,7 +114,7 @@ public class Controller extends Main {
 		
 		//push taskData to GCal
 		Calendar service = CalendarAPI.build();
-		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone);
+		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone, colorId);
 	}
 	
 	@FXML private void deleteSelection() throws GeneralSecurityException, IOException {
