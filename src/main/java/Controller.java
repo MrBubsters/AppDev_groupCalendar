@@ -1,9 +1,5 @@
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import com.google.api.client.util.DateTime;
@@ -34,7 +30,7 @@ public class Controller extends Main {
 	@FXML Button refresh;
 	ObservableList<String> taskData = FXCollections.observableArrayList();
 
-	
+	// refreshes the ListView with next 10 events from google calendar
 	@FXML private void handleTastViewButton(ActionEvent event) throws IOException, GeneralSecurityException {
 		Calendar service = CalendarAPI.build();
 		tasks.clear();
@@ -89,6 +85,7 @@ public class Controller extends Main {
 	@FXML TextField time;
 	@FXML TextField end;
 	
+	// pulls data from task and inserts it into temporary list taskData
 	private void GetData() {
 		taskData.clear();
 		taskData.add(title.getText());
@@ -100,9 +97,9 @@ public class Controller extends Main {
 		taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-07:00");
 		System.out.println(taskData.get(2));
 	}
-	
+	// action handler for the save event option
 	@FXML private void saveButtonAction(ActionEvent event) throws IOException, GeneralSecurityException {
-		//get fields from taskData
+		//get fields from taskData to store as local variables
 		GetData();
 		String summary = taskData.get(0);
 		String desc = taskData.get(1);
@@ -117,13 +114,14 @@ public class Controller extends Main {
 		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone, colorId);
 	}
 	
+	// controlling funciton for deleting event, based on what is selected from the list
 	@FXML private void deleteSelection() throws GeneralSecurityException, IOException {
 		int selectedIdx = list.getSelectionModel().getSelectedIndex();
 		ArrayList<String> idList = CalendarAPI.getList("id");
 		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
 		handleTastViewButton(null);
 	}
-	
+	// unused at this point
 	@FXML private void handleHoverTasks() {
 		int selectedIdx = list.getSelectionModel().getSelectedIndex();
 		ArrayList<String> descList = CalendarAPI.getList("desc");

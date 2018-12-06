@@ -62,7 +62,7 @@ public class CalendarAPI {
     }
     
     public static Calendar build() throws GeneralSecurityException, IOException {
-    	// Build Calendar
+    	// Build Calendar and load from profile
     	final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Calendar service = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
@@ -147,8 +147,9 @@ public class CalendarAPI {
       }
       return eventList;
     }
-    
+    // getter for the task information lists.
     public static ArrayList<String> getList(String s) {
+    	//input string determines which list to return
     	if (s == "id") {
     		return idList;
     	}
@@ -159,12 +160,14 @@ public class CalendarAPI {
     }
     
     public static void DeleteEvent(String id) throws GeneralSecurityException, IOException {
+    	//Deletes an event given an event id
     	Calendar service = build();
     	service.events().delete("primary", id).execute();
 
     }
     
     public static void DeleteCreds() {
+    	//Logout is handled by deleting the encrypted stored credentials file
     	File creds = new File("tokens/StoredCredential");
     	creds.delete();
     }
