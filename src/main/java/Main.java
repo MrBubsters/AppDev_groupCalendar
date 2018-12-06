@@ -20,6 +20,7 @@ public class Main extends Application {
         this.primaryStage.setTitle("Pin5ive");
  
         initRootLayout();
+        setUserAgentStylesheet(STYLESHEET_MODENA);
  
         showView("TaskView.fxml");
         setRight("UserLogin.fxml");
