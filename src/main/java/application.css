@@ -19,3 +19,7 @@
    -fx-font: bold italic "Times New Romans";
    -fx-effect: dropshadow( one-pass-box , gray , 8 , 0.0 , 2 , 0 );
 }
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
