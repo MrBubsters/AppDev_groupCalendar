@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-
+import java.util.ArrayList;
 
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
@@ -42,10 +42,21 @@ public class Controller extends Main {
 
 	@FXML Button ChangeMe;
 	@FXML Button SignMeUp;
+	@FXML private javafx.scene.control.Button CalAPI;
+	@FXML private javafx.scene.control.Button CloseMe;
+	
+	@FXML private void CalAPIevent(ActionEvent event)
+	{
+		((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+	}
+	
+	@FXML private void nowCloseMe(ActionEvent event){
+		((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+	}
 
 	@FXML private void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new 
-		        FXMLLoader(getClass().getResource("RootLayout.fxml"));
+		        FXMLLoader(getClass().getResource("RootLayout.fmxl"));
 		    Parent root1 = (Parent) fxmlLoader.load();
 		    Stage stage = new Stage();
 		    //set what you want on your stage
@@ -69,6 +80,7 @@ public class Controller extends Main {
 		    stage.show();
 	
 	}
+
 	
 	@FXML Button create;
 	@FXML TextField title;
@@ -104,7 +116,9 @@ public class Controller extends Main {
 		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone);
 	}
 	
-	@FXML private void handleSelection() {
-		
+	@FXML private void deleteSelection() throws GeneralSecurityException, IOException {
+		int selectedIdx = list.getSelectionModel().getSelectedIndex();
+		ArrayList<String> idList = CalendarAPI.getIDList();
+		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
 	}
 }
