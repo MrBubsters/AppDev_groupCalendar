@@ -77,16 +77,14 @@ public class CalendarAPI {
     	Event event = new Event()
     		    .setSummary(summary)
 //    		    .setLocation(loc)
-    		    .setDescription(desc);
-    	event.setColorId(colorId);
+    		    .setDescription(desc)
+    			.setColorId(colorId);
 
-    		DateTime startDateTime = new DateTime("2018-11-28T09:00:00-07:00");
     		EventDateTime start = new EventDateTime()
     		    .setDateTime(startTime)
     		    .setTimeZone("America/Chicago");
     		event.setStart(start);
 
-    		DateTime endDateTime = new DateTime("2018-11-28T17:00:00-07:00");
     		EventDateTime end = new EventDateTime()
     		    .setDateTime(endTime)
     		    .setTimeZone("America/Chicago");
