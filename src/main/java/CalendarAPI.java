@@ -18,6 +18,7 @@ import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.EventReminder;
 import com.google.api.services.calendar.model.Events;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -143,9 +144,18 @@ public class CalendarAPI {
       }
       return list;
     }
+    
+    public static void DeleteEvent(String id) {
+    	
+    }
+    
+    public static void DeleteCreds() {
+    	File creds = new File("tokens/StoredCredential");
+    	creds.delete();
+    }
 
     public static void main(String... args) throws IOException, GeneralSecurityException {
     	Calendar service = build();
-    	getNext10(service);
+    	//DeleteCreds();
     }
 }

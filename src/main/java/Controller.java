@@ -83,8 +83,8 @@ public class Controller extends Main {
 //		DateTimeFormatter formatter = DateTimeFormatter
 //	            .ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 //	            .withZone(ZoneId.of("CST"));
-		taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-06:00");
-		taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-06:00");
+		taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-07:00");
+		taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-07:00");
 		System.out.println(taskData.get(2));
 	}
 	
@@ -104,4 +104,7 @@ public class Controller extends Main {
 		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone);
 	}
 	
+	@FXML private void handleSelection() {
+		
+	}
 }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -13,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="515.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="515.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <GridPane alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="370.0">
         <columnConstraints>
@@ -24,10 +29,17 @@
           <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="491.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="558.0" minHeight="1.0" prefHeight="45.0" vgrow="SOMETIMES" />
+
             <RowConstraints maxHeight="558.0" minHeight="0.0" prefHeight="52.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="558.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="350.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+
+            <RowConstraints maxHeight="558.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="558.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="350.0" minHeight="0.0" prefHeight="99.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+
         </rowConstraints>
          <children>
             <Label text="Category:">
@@ -60,11 +72,13 @@
                </GridPane.margin>
             </Button>
             <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="time" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time (X:XX)" wrappingWidth="79.1767578125" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time (X:XX)" wrappingWidth="79.1767578125" GridPane.rowIndex="3" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="time" />
+                  <TextField fx:id="end" />
+               </children>
+            </HBox>
          </children>
          <opaqueInsets>
             <Insets />
