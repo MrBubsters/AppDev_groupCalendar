@@ -21,6 +21,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -39,13 +40,11 @@ public class Controller extends Main {
 		list.setItems(tasks);
 	}
 
-
 	@FXML Button ChangeMe;
 	@FXML Button SignMeUp;
 	@FXML private javafx.scene.control.Button CalAPI;
 	@FXML private javafx.scene.control.Button CloseMe;
 	@FXML Button LogMeOut;
-	
 	
 	@FXML private void LogOutAction(ActionEvent event) {
 		CalendarAPI.DeleteCreds();
@@ -87,6 +86,7 @@ public class Controller extends Main {
 	@FXML DatePicker date;
 	@FXML TextField time;
 	@FXML TextField end;
+	
 	private void GetData() {
 		taskData.clear();
 		taskData.add(title.getText());
@@ -120,5 +120,12 @@ public class Controller extends Main {
 		ArrayList<String> idList = CalendarAPI.getList("id");
 		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
 		handleTastViewButton(null);
+	}
+	
+	@FXML private void handleHoverTasks() {
+		int selectedIdx = list.getSelectionModel().getSelectedIndex();
+		ArrayList<String> descList = CalendarAPI.getList("desc");
+		String s = descList.get(selectedIdx);
+		Tooltip desc = new Tooltip(s);
 	}
 }
