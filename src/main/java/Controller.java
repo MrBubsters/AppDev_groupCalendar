@@ -24,8 +24,10 @@ import javafx.stage.Stage;
 
 public class Controller extends Main {
 	
-	@FXML String colorId;
 	
+	@FXML String colorId;
+	@FXML ComboBox comboCategories;
+
 	ObservableList<String> tasks = FXCollections.observableArrayList();
 	@FXML ListView<String> list;
 	@FXML Button refresh;
@@ -150,6 +152,4 @@ public class Controller extends Main {
         alert.show();
     }
 	
-   @FXML ComboBox comboCategories;
-
 }
