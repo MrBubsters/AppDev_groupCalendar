@@ -137,6 +137,7 @@ public class Controller extends Main {
 //		description.textProperty().bind(string);
 //		System.out.println(description.getText());
 //	}
+
 	
 	
    @FXML public void handleHelp(ActionEvent actionEvent) {
@@ -148,4 +149,5 @@ public class Controller extends Main {
         alert.show();
     }
 	
+
 }
