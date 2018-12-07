@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
@@ -138,13 +139,13 @@ public class Controller extends Main {
 //	}
 	
 	
-//   @FXML public void handleHelp(ActionEvent actionEvent) {
-//        Alert alert = new Alert (Alert.AlertType.INFORMATION);
-//        alert.setTitle("Program Information");
-//        alert.setHeaderText("This is a sample JAVAFX application");
-//        alert.setContentText("You can search, delete, update, " 
-//        					 + "insert a new employee with this program.");
-//        alert.show();
-//    }
+   @FXML public void handleHelp(ActionEvent actionEvent) {
+        Alert alert = new Alert (Alert.AlertType.INFORMATION);
+        alert.setTitle("Program Information");
+        alert.setHeaderText("This is a sample JAVAFX application");
+        alert.setContentText("You can search, delete, update, " 
+        					 + "insert a new employee with this program.");
+        alert.show();
+    }
 	
 }
