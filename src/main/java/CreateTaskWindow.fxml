@@ -95,7 +95,7 @@
                </padding>
             </Label>
             <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button fx:id="create" mnemonicParsing="false" onAction="#saveButtonAction" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Button fx:id="create" mnemonicParsing="false" onAction="#saveButtonAction" text="PinIt" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets left="100.0" />
                </GridPane.margin>

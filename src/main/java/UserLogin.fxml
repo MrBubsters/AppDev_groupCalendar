@@ -16,7 +16,6 @@
       <TextField layoutX="109.0" layoutY="87.0" />
         
       <Button id="ChangeMe" layoutX="137.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" text="Login" />
-      		 
        
       <Button id="SignMeUp" layoutX="200.0" layoutY="205.0" mnemonicParsing="false" onAction="#SignUpButtonAction" text="Signup" />
       

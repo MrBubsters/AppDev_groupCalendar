@@ -17,8 +17,9 @@ public class RootLayoutController {
         Alert alert = new Alert (Alert.AlertType.INFORMATION);
         alert.setTitle("Program Information");
         alert.setHeaderText("For this Pin5ive Task Application");
-        alert.setContentText("You can search, delete, update, " 
-        					 + "any task that you may have");
+        alert.setContentText("You can PinIt, which saves your task that was inputed  " 
+        					 + "You can Update, Refresh, or Delete any completed task."+
+        		" More information email info@Pin5ive.com");
         alert.show();
     }
 }
