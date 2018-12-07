@@ -28,7 +28,6 @@
 }
 
 .label {
-    -fx-font: bold "Segoe UI Semibold";
     -fx-text-fill: BLACK;
     -fx-opacity: 1.0;
 }
@@ -37,7 +36,6 @@
 .button { 
    -fx-background-color: #3c5a74; 
    -fx-text-fill: white; 
-   -fx-font: bold italic "Segoe UI Semibold";
    -fx-effect: dropshadow( one-pass-box , gray , 8 , 0.0 , 2 , 0 );
 }
 
