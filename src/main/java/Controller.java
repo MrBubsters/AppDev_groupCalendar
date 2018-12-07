@@ -97,7 +97,10 @@ public class Controller extends Main {
 //	            .ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 //	            .withZone(ZoneId.of("CST"));
 		taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-07:00");
-		taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-07:00");
+		if (end != null) {
+			taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-07:00");
+
+		} else {taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-07:00");}
 		System.out.println(taskData.get(2));
 	}
 	// action handler for the save event option
