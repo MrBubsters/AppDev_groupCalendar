@@ -28,7 +28,7 @@
 }
 
 .label {
-    -fx-font-family: "Segoe UI Semibold";
+    -fx-font: bold "Segoe UI Semibold";
     -fx-text-fill: BLACK;
     -fx-opacity: 1.0;
 }
@@ -49,6 +49,12 @@
 .list-view .column-header-background .filler {
     -fx-background-color:  #6622CC; 
 }
+
+.list:hover{
+	-fx-background-color: green;
+	
+}
+
 .list-view .column-header .label{
    -fx-text-fill: white;
    -fx-font-weight: bold; 
