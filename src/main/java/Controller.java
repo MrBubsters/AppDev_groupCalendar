@@ -1,10 +1,8 @@
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
-
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,7 +24,7 @@ public class Controller extends Main {
 	
 	
 	@FXML String colorId;
-	@FXML ComboBox comboCategories;
+	@FXML ComboBox<String> comboCategories;
 
 	ObservableList<String> tasks = FXCollections.observableArrayList();
 	@FXML ListView<String> list;
