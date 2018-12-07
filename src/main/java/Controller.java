@@ -17,7 +17,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -114,18 +114,25 @@ public class Controller extends Main {
 		CalendarAPI.addEvent(service, summary, desc, startTime, endTime, recur, timezone, colorId);
 	}
 	
-	// controlling funciton for deleting event, based on what is selected from the list
+	// controlling function for deleting event, based on what is selected from the list
 	@FXML private void deleteSelection() throws GeneralSecurityException, IOException {
 		int selectedIdx = list.getSelectionModel().getSelectedIndex();
 		ArrayList<String> idList = CalendarAPI.getList("id");
 		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
 		handleTastViewButton(null);
 	}
+	
+	@FXML StackPane stackpane;
+	@FXML TextArea description = new TextArea();
 	// unused at this point
 	@FXML private void handleHoverTasks() {
 		int selectedIdx = list.getSelectionModel().getSelectedIndex();
+		System.out.println(selectedIdx);
 		ArrayList<String> descList = CalendarAPI.getList("desc");
+		System.out.println(descList);
 		String s = descList.get(selectedIdx);
-		Tooltip desc = new Tooltip(s);
+		System.out.println(s);
+		description.appendText(s);
+		System.out.println(description.getText());
 	}
 }

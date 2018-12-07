@@ -142,7 +142,9 @@ public class CalendarAPI {
               System.out.printf("%s (%s)\n", event.getSummary(), start);
               eventList.add(event.getSummary());
               idList.add(event.getId());
-              descList.add(event.getDescription());
+              if (event.getDescription() != null) {
+            	  descList.add(event.getDescription());
+              } else {descList.add("no description");}
           }
       }
       return eventList;
@@ -171,6 +173,7 @@ public class CalendarAPI {
     	File creds = new File("tokens/StoredCredential");
     	creds.delete();
     }
+    
 
     public static void main(String... args) throws IOException, GeneralSecurityException {
     	//Calendar service = build();
