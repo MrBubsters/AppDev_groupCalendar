@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -132,7 +133,7 @@ public class Controller extends Main {
 		System.out.println(descList);
 		String s = descList.get(selectedIdx);
 		System.out.println(s);
-		description.appendText(s);
+		description.setText(s);
 		System.out.println(description.getText());
 	}
 }
