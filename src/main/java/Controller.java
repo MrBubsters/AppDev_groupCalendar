@@ -1,10 +1,8 @@
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
-
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -23,8 +22,10 @@ import javafx.stage.Stage;
 
 public class Controller extends Main {
 	
-	@FXML String colorId;
 	
+	@FXML String colorId;
+	@FXML ComboBox<String> comboCategories;
+
 	ObservableList<String> tasks = FXCollections.observableArrayList();
 	@FXML ListView<String> list;
 	@FXML Button refresh;
@@ -149,5 +150,4 @@ public class Controller extends Main {
         alert.show();
     }
 	
-
 }
