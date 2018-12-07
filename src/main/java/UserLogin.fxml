@@ -23,6 +23,5 @@
       <Label layoutX="34.0" layoutY="92.0" prefHeight="17.0" prefWidth="68.0" text="Password:" />
       <Button id="LogMeOut" layoutX="199.0" layoutY="126.0" mnemonicParsing="false" onAction="#LogOutAction" text="Logout" />
       <Label layoutX="121.0" layoutY="165.0" text="Create User" />
-      <TextArea fx:id="description" blendMode="OVERLAY" layoutX="8.0" layoutY="292.0" prefHeight="200.0" prefWidth="283.0" />
    </children>
 </AnchorPane>

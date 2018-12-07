@@ -1,11 +1,8 @@
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
-
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
-
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +15,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -30,6 +26,7 @@ public class Controller extends Main {
 	@FXML ListView<String> list;
 	@FXML Button refresh;
 	ObservableList<String> taskData = FXCollections.observableArrayList();
+	@FXML TextArea description;
 
 	// refreshes the ListView with next 10 events from google calendar
 	@FXML private void handleTastViewButton(ActionEvent event) throws IOException, GeneralSecurityException {
@@ -123,17 +120,15 @@ public class Controller extends Main {
 		handleTastViewButton(null);
 	}
 	
-	@FXML StackPane stackpane;
-	@FXML TextArea description = new TextArea();
-	// unused at this point
-	@FXML private void handleHoverTasks() {
-		int selectedIdx = list.getSelectionModel().getSelectedIndex();
-		System.out.println(selectedIdx);
-		ArrayList<String> descList = CalendarAPI.getList("desc");
-		System.out.println(descList);
-		String s = descList.get(selectedIdx);
-		System.out.println(s);
-		description.setText(s);
-		System.out.println(description.getText());
-	}
+	// text still does not update. No clue why
+//	@FXML private void handleHoverTasks() {
+//		int selectedIdx = list.getSelectionModel().getSelectedIndex();
+//		System.out.println(selectedIdx);
+//		ArrayList<String> descList = CalendarAPI.getList("desc");
+//		System.out.println(descList);
+//		String s = descList.get(selectedIdx);
+//		System.out.println(s);
+//		description.setText(s);
+//		System.out.println(description.getText());
+//	}
 }
