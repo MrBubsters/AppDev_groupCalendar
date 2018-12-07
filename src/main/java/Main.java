@@ -73,7 +73,7 @@ public class Main extends Application {
     public void setLeft(String fxml) {
         try {
         	AnchorPane View = FXMLLoader.load(getClass().getResource(fxml));
-        	
+
             rootLayout.setLeft(View);
         } 
         catch (IOException e) {

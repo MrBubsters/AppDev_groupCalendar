@@ -1,8 +1,10 @@
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
+
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -23,8 +24,11 @@ import javafx.stage.Stage;
 public class Controller extends Main {
 	
 	
+	ObservableList<String> comboCategoriesList = FXCollections.observableArrayList("Homework", "Work", "Home");
+	
 	@FXML String colorId;
-	@FXML ComboBox<String> comboCategories;
+	@FXML 
+	private ComboBox<String> comboCategories;
 
 	ObservableList<String> tasks = FXCollections.observableArrayList();
 	@FXML ListView<String> list;
@@ -65,6 +69,14 @@ public class Controller extends Main {
 		CalendarAPI.build();
 	}
 	
+	
+	//Categories 
+	@FXML 
+	private void initalize() {
+		comboCategories.setItems(comboCategoriesList);
+		comboCategories.setValue("Home");
+
+	}
 	
 	@FXML private void SignUpButtonAction(ActionEvent event) throws IOException{
 		FXMLLoader fxmlLoader = new 
@@ -140,14 +152,5 @@ public class Controller extends Main {
 //	}
 
 	
-	
-   @FXML public void handleHelp(ActionEvent actionEvent) {
-        Alert alert = new Alert (Alert.AlertType.INFORMATION);
-        alert.setTitle("Program Information");
-        alert.setHeaderText("This is a sample JAVAFX application");
-        alert.setContentText("You can search, delete, update, " 
-        					 + "insert a new employee with this program.");
-        alert.show();
-    }
 	
 }
