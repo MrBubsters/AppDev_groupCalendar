@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -14,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="515.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="515.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taskController">
    <children>
       <GridPane alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="370.0">
         <columnConstraints>
@@ -62,7 +67,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <ComboBox fx:id="comboCategories" onAction="#initalize" prefWidth="150.0" promptText="Select Category" visibleRowCount="4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="comboCategories" prefWidth="150.0" promptText="Select Category" visibleRowCount="4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
            
       
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time (XX:XX):" wrappingWidth="79.1767578125" GridPane.rowIndex="5">

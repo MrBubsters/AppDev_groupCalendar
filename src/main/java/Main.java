@@ -26,7 +26,6 @@ public class Main extends Application {
  
         showView("TaskView.fxml");
         setRight("UserLogin.fxml");
-
         setLeft("CreateTaskWindow.fxml");
 
     }
