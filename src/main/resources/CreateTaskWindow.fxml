@@ -68,12 +68,6 @@
                </GridPane.margin>
             </Label>
             <ComboBox fx:id="comboCategories" prefWidth="150.0" promptText="Select Category" visibleRowCount="4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-           
-      
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time (XX:XX):" wrappingWidth="79.1767578125" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin></Text>
                
       
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -105,6 +99,14 @@
                   <Insets left="100.0" />
                </GridPane.margin>
             </Button>
+            <Label text="Time: 24:00 " GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
          </children>
          <opaqueInsets>
             <Insets />

@@ -44,10 +44,10 @@ public class taskController implements Initializable{
 //		            .ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 //		            .withZone(ZoneId.of("CST"));
 		taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-07:00");
-		if (end != null) {
-			taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-07:00");
-
-		} else {taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-07:00");}
+		System.out.println(end.getText());
+		if (end.getText() == null || end.getText().trim().isEmpty()) {
+			taskData.add(date.getValue().toString() + "T" + time.getText() + ":00.000-07:00");
+		} else {taskData.add(date.getValue().toString() + "T" + end.getText() + ":00.000-07:00");}
 		System.out.println(taskData.get(2));
 	}
 	
