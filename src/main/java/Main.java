@@ -1,8 +1,11 @@
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -22,7 +25,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("pinitlogo-fin.jpg")));
 
  
-        initRootLayout();
+        initRootLayout("application.css");
  
         showView("TaskView.fxml");
         setRight("UserLogin.fxml");
@@ -31,12 +34,12 @@ public class Main extends Application {
     }
  
     // Initializes the root layout.
-    public void initRootLayout() {
+    public void initRootLayout(String s) {
         try {
             rootLayout = FXMLLoader.load(getClass().getResource("RootLayout.fxml"));
- 
+            rootLayout.getStylesheets().add(getClass().getResource(s).toExternalForm());
+            
             Scene scene = new Scene(rootLayout, 1250, 700);
-            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
             primaryStage.setScene(scene);
 
@@ -91,7 +94,25 @@ public class Main extends Application {
         }
     }
 
-
+	//Exit the program
+	@FXML
+	public void handleExit(ActionEvent actionEvent) {
+        // exit() causes the JavaFX application to terminate.
+    	System.exit(0);
+       
+    }
+ 
+    //Help Menu button behavior
+	@FXML
+	public void handleHelp(ActionEvent actionEvent) {
+        Alert alert = new Alert (Alert.AlertType.INFORMATION);
+        alert.setTitle("Program Information");
+        alert.setHeaderText("For this Pin5ive Task Application");
+        alert.setContentText("You can PinIt, which saves your task that was inputed  " 
+        					 + "You can Update, Refresh, or Delete any completed task."+
+        		" More information email info@Pin5ive.com");
+        alert.show();
+	}
  
 	public static void main(String[] args) {
 		launch(args);

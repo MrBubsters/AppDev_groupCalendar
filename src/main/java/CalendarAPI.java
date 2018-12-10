@@ -36,6 +36,7 @@ public class CalendarAPI {
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
     public static ArrayList<String> idList = new ArrayList<String>();
     public static ArrayList<String> descList = new ArrayList<String>();
+    public static ArrayList<String> catList = new ArrayList<String>();
 
 
 
@@ -145,6 +146,7 @@ public class CalendarAPI {
               if (event.getDescription() != null) {
             	  descList.add(event.getDescription());
               } else {descList.add("no description");}
+              catList.add(event.getColorId());
           }
       }
       return eventList;
@@ -157,6 +159,9 @@ public class CalendarAPI {
     	}
     	else if (s == "desc") {
     		return descList;
+    	}
+    	else if (s == "cat") {
+    		return catList;
     	}
     	else return null;
     }
