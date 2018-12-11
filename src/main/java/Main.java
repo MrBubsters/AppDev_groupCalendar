@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -15,7 +16,12 @@ public class Main extends Application {
 	
     private Stage primaryStage;
     
-    private BorderPane rootLayout;
+    private BorderPane rootLayout = new BorderPane();
+    Scene scene;
+
+    @FXML
+    CheckMenuItem checkMenuItem;
+    
 
 	@Override
     public void start(Stage primaryStage) {
@@ -39,7 +45,7 @@ public class Main extends Application {
             rootLayout = FXMLLoader.load(getClass().getResource("RootLayout.fxml"));
             rootLayout.getStylesheets().add(getClass().getResource(s).toExternalForm());
             
-            Scene scene = new Scene(rootLayout, 1250, 700);
+            scene = new Scene(rootLayout, 1250, 700);
             
             primaryStage.setScene(scene);
 
@@ -101,6 +107,24 @@ public class Main extends Application {
     	System.exit(0);
        
     }
+	@FXML
+	public void handleDark(ActionEvent actionEvent) {
+		rootLayout.getStylesheets().clear();
+        setUserAgentStylesheet(null);
+        rootLayout.getStylesheets()
+                .add(getClass()
+                        .getResource("dark.css")
+                        .toExternalForm());
+        System.out.println("foo");
+        scene = new Scene(rootLayout, 1250, 700);
+        System.out.println("bar");
+
+        
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
+	}
+	
  
     //Help Menu button behavior
 	@FXML
@@ -113,8 +137,10 @@ public class Main extends Application {
         		" More information email info@Pin5ive.com");
         alert.show();
 	}
+	
  
 	public static void main(String[] args) {
 		launch(args);
+		
 	}
 }
