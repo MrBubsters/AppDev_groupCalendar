@@ -77,6 +77,7 @@ public class Controller {
 	// controlling function for deleting event, based on what is selected from the list
 	@FXML private void deleteSelection() throws GeneralSecurityException, IOException {
 		int selectedIdx = list.getSelectionModel().getSelectedIndex();
+		System.out.println(selectedIdx);
 		ArrayList<String> idList = CalendarAPI.getList("id");
 		CalendarAPI.DeleteEvent(idList.get(selectedIdx));
 		handleTastViewButton(null);
